@@ -1,0 +1,25 @@
+﻿@model QuickEnrollment.Models.Enrollment
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Enrolltoday</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+           <p>First name:@Html.TextBoxFor(x=> x.FirstName) </p>
+             <p>Last name:@Html.TextBoxFor(x=> x.LastName) </p>
+             <p>Date Of Birth:@Html.TextBoxFor(x=> x.DOB) </p>
+            <input type="submit" value="Submit enrollment" />
+        }
+    </div>
+</body>
+</html>

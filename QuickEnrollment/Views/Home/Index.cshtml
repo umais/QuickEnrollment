@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Hayyan's Home Page</h2>
+<hr />
+<h2>Hello My Name is Hayyan.</h2>
+<ul>
+    @foreach(String s in @ViewBag.ILike)
+    {
+    <li>@s</li>
+
+    }
+</ul>
+
+<div id="contactForm" class="ContactForm">
+    <form id="cntForm">
+        <table class="formTable">
+            <tr>
+       <td> <label for="name">Name:</label></td>
+       <td> <input id="name" type="text" required placeholder="Enter Your Name" /></td>
+                </tr>
+        <tr>
+           <td> <label for="email">email</label></td>
+        <td><input id=email type="email" required placeholder="youremail@url.com" /></td>
+            </tr>
+
+    <tr><td colspan="2">    <input type="submit" id="btnSubmit" value="Contact Me" /></td></tr>
+            </table>
+    </form>
+
+</div>

@@ -1,0 +1,44 @@
+﻿body {
+    margin:40px;
+}
+
+.mainContent{
+
+    height:400px;
+    width:800px;
+    border:2px solid green;
+    margin-left:10px;
+}
+
+header>h1{
+
+    color:red;
+
+} 
+.scrollable{
+    height:100px;
+overflow-y:scroll;
+
+
+
+}
+
+.requiredFields{
+
+    border:1px red solid;
+
+}
+
+
+.ContactForm{
+
+
+width:300px;
+margin-left:10px;
+}
+
+.formTable{
+
+    border:1px solid black;
+
+}
