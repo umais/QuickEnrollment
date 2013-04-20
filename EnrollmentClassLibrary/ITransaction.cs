@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace EnrollmentClassLibrary
 {
-///
-/// The interface for transactions gaurantees that classes implement the validate method
-///
+    /// <summary>
+    /// The <c>ITransaction</c> iterface assures that all transaction classes implement common methods.
+    /// </summary>
     public interface ITransaction
     {
+        /// <summary>
+        /// The <c>validate</c> method performas a global validation of all the properties of the transaction.
+        /// </summary>
+        /// <returns>A value of true indicates that all the data on this transaction is valid and ready to send to CMS.
+        /// A value of false indicates that data errors exist.</returns>
+        bool Validate();
+
         string Insert();
     }
 }

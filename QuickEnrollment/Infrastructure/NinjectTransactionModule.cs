@@ -11,8 +11,8 @@ namespace QuickEnrollment.Infrastructure
     {
         public override void Load()
         {
-            Bind<ITransaction>().To<MedicareTransaction>().WhenInjectedExactlyInto<HomeController>();
-            Bind<ITransaction>().To<OtherTransactions>();
+            Bind<ITransaction>().To<BaseTransaction>().WhenInjectedExactlyInto<HomeController>();
+//            Bind<ITransaction>().To<EnrollmentTransaction>();
         }
     }
 }

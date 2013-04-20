@@ -42,12 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTransaction.cs" />
+    <Compile Include="DisenrollmentTransaction.cs" />
     <Compile Include="EligibilityRules.cs" />
+    <Compile Include="EnrollmentTransaction.cs" />
     <Compile Include="ITransaction.cs" />
-    <Compile Include="MedicareTransaction.cs" />
     <Compile Include="ITransactionRules.cs" />
     <Compile Include="Member.cs" />
-    <Compile Include="OtherTransactions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
