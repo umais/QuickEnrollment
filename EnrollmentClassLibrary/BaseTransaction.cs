@@ -11,6 +11,16 @@ namespace EnrollmentClassLibrary
     /// </summary>
     public abstract class BaseTransaction:ITransaction
     {
+        private string _HICN;
+        /// <summary>
+        /// CMS member identifier HICN
+        /// </summary>
+        public string HICN
+        {
+            get { return _HICN; }
+            set { _HICN = value; }
+        }
+
         private string _Surname;
         /// <summary>
         /// Member last name
@@ -61,6 +71,16 @@ namespace EnrollmentClassLibrary
             set { _BirthDate = value; }
         }
 
+        private string _EGHPFlag;
+        /// <summary>
+        /// Member last name
+        /// </summary>
+        public string EGHPFlag
+        {
+            get { return _EGHPFlag; }
+            set { _EGHPFlag = value; }
+        }
+
         private string _PBPNumber;
         /// <summary>
         /// Two character code for the Plan Benefit Package
@@ -89,6 +109,226 @@ namespace EnrollmentClassLibrary
         {
             get { return _ContractNumber; }
             set { _ContractNumber = value; }
+        }
+
+        private string _ApplicationDate;
+        /// <summary>
+        /// The date the member application was sent to the payer
+        /// </summary>
+        public string ApplicationDate
+        {
+            get { return _ApplicationDate; }
+            set { _ApplicationDate = value; }
+        }
+
+        private string _DisenrollmentReason;
+        /// <summary>
+        /// Member last name
+        /// </summary>
+        public string DisenrollmentReason
+        {
+            get { return _DisenrollmentReason; }
+            set { _DisenrollmentReason = value; }
+        }
+
+        private string _EffectiveDate;
+        /// <summary>
+        /// The date this transaction should take effect
+        /// </summary>
+        public string EffectiveDate
+        {
+            get { return _EffectiveDate; }
+            set { _EffectiveDate = value; }
+        }
+
+        private string _SegmentId;
+        /// <summary>
+        /// Segment Id is a subdividion of the PBP
+        /// </summary>
+        public string SegmentId
+        {
+            get { return _SegmentId; }
+            set { _SegmentId = value; }
+        }
+
+        private string _ESRDOverride;
+        /// <summary>
+        /// ESRD Override flag
+        /// </summary>
+        public string ESRDOverride
+        {
+            get { return _ESRDOverride; }
+            set { _ESRDOverride = value; }
+        }
+
+        private string _PremiumWithholdOption;
+        /// <summary>
+        /// Flag indicating that premiums are withheld from a member's pay
+        /// </summary>
+        public string PremiumWithholdOption
+        {
+            get { return _PremiumWithholdOption; }
+            set { _PremiumWithholdOption = value; }
+        }
+
+        private string _PartCPremiumAmount;
+        /// <summary>
+        /// The amoung the member will pay for Part C coverage
+        /// </summary>
+        public string PartCPremiumAmount
+        {
+            get { return _PartCPremiumAmount; }
+            set { _PartCPremiumAmount = value; }
+        }
+
+        private string _CreditableCoverageFlag;
+        /// <summary>
+        /// Indicator for creditable coverage
+        /// </summary>
+        public string CreditableCoverageFlag
+        {
+            get { return _CreditableCoverageFlag; }
+            set { _CreditableCoverageFlag = value; }
+        }
+
+        private string _NumberofUncoveredMonths;
+        /// <summary>
+        /// Number of uncovered months
+        /// </summary>
+        public string NumberofUncoveredMonths
+        {
+            get { return _NumberofUncoveredMonths; }
+            set { _NumberofUncoveredMonths = value; }
+        }
+
+        private string _EmployerSubsidyEnrollment;
+        /// <summary>
+        /// Employer subsidy enrollment override flag
+        /// </summary>
+        public string EmployerSubsidyEnrollment
+        {
+            get { return _EmployerSubsidyEnrollment; }
+            set { _EmployerSubsidyEnrollment = value; }
+        }
+
+        private string _PartDOptOutFlag;
+        /// <summary>
+        /// Part D opt out flag
+        /// </summary>
+        public string PartDOptOutFlag
+        {
+            get { return _PartDOptOutFlag; }
+            set { _PartDOptOutFlag = value; }
+        }
+
+        private string _SecondaryDrugInsuranceFlag;
+        /// <summary>
+        /// Flag indicating the member has additional drug insurance
+        /// </summary>
+        public string SecondaryDrugInsuranceFlag
+        {
+            get { return _SecondaryDrugInsuranceFlag; }
+            set { _SecondaryDrugInsuranceFlag = value; }
+        }
+
+        private string _SecondaryRxId;
+        /// <summary>
+        /// Id number of the member's additional drug insurance
+        /// </summary>
+        public string SecondaryRxId
+        {
+            get { return _SecondaryRxId; }
+            set { _SecondaryRxId = value; }
+        }
+
+        private string _SecondaryRxGroup;
+        /// <summary>
+        /// Flag indicating the member has additional drug insurance
+        /// </summary>
+        public string SecondaryRxGroup
+        {
+            get { return _SecondaryRxGroup; }
+            set { _SecondaryRxGroup = value; }
+        }
+
+        private string _EnrollmentSource;
+        /// <summary>
+        /// Code indicating how the enrollment originated
+        /// </summary>
+        public string EnrollmentSource
+        {
+            get { return _EnrollmentSource; }
+            set { _EnrollmentSource = value; }
+        }
+
+        private string _TransactionTrackingId;
+        /// <summary>
+        /// Unique number assigned by the payer to correlate transactions with responses on the TRR
+        /// </summary>
+        public string TransactionTrackingId
+        {
+            get { return _TransactionTrackingId; }
+            set { _TransactionTrackingId = value; }
+        }
+
+        private string _PartDRxBIN;
+        /// <summary>
+        /// RX BIN for Part D coverage
+        /// </summary>
+        public string PartDRxBIN
+        {
+            get { return _PartDRxBIN; }
+            set { _PartDRxBIN = value; }
+        }
+
+        private string _PartDRxPCN;
+        /// <summary>
+        /// PCN for part D coverage
+        /// </summary>
+        public string PartDRxPCN
+        {
+            get { return _PartDRxPCN; }
+            set { _PartDRxPCN = value; }
+        }
+
+        private string _PartDRxGroup;
+        /// <summary>
+        /// Group number for Part D coverage
+        /// </summary>
+        public string PartDRxGroup
+        {
+            get { return _PartDRxGroup; }
+            set { _PartDRxGroup = value; }
+        }
+
+        private string _PartDRxId;
+        /// <summary>
+        /// Part D Rx Id
+        /// </summary>
+        public string PartDRxId
+        {
+            get { return _PartDRxId; }
+            set { _PartDRxId = value; }
+        }
+
+        private string _SecondaryDrugBIN;
+        /// <summary>
+        /// BIN for additional drug insurance
+        /// </summary>
+        public string SecondaryDrugBIN
+        {
+            get { return _SecondaryDrugBIN; }
+            set { _SecondaryDrugBIN = value; }
+        }
+
+        private string _SecondaryDrugPCN;
+        /// <summary>
+        /// PCN for additional drug insurance
+        /// </summary>
+        public string SecondaryDrugPCN
+        {
+            get { return _SecondaryDrugPCN; }
+            set { _SecondaryDrugPCN = value; }
         }
 
         /// <summary>
