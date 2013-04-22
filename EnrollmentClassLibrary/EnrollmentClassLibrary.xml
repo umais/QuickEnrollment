@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EnrollmentClassLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:EnrollmentClassLibrary.BaseTransaction">
+            <summary>
+            The <c>BaseTransaction</c> is an abstract class containing the common properties and methods of all CMS Transactions.
+            </summary>
+        </member>
+        <member name="T:EnrollmentClassLibrary.ITransaction">
+            <summary>
+            The <c>ITransaction</c> iterface assures that all transaction classes implement common methods.
+            </summary>
+        </member>
+        <member name="M:EnrollmentClassLibrary.ITransaction.Validate">
+            <summary>
+            The <c>validate</c> method performas a global validation of all the properties of the transaction.
+            </summary>
+            <returns>A value of true indicates that all the data on this transaction is valid and ready to send to CMS.
+            A value of false indicates that data errors exist.</returns>
+        </member>
+        <member name="M:EnrollmentClassLibrary.ITransaction.Insert">
+            <summary>
+            Stub for the insert method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EnrollmentClassLibrary.BaseTransaction.Validate">
+            <summary>
+            The <c>validate</c> method is part of the ITransaction interface. This method checks the values of the transaction and returns
+            true if the elements pass the edit checks; otherwise it returns false.
+            </summary>
+            <returns>A value of true indicates that all the data on this transaction is valid and ready to send to CMS.
+            A value of false indicates that data errors exist.</returns>
+        </member>
+        <member name="M:EnrollmentClassLibrary.BaseTransaction.Insert">
+            <summary>
+            Stub for the Insert method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.HICN">
+            <summary>
+            CMS member identifier HICN
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.Surname">
+            <summary>
+            Member last name
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.FirstName">
+            <summary>
+            Member first name
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.MInitial">
+            <summary>
+            Initial letter of the member's middle name
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.GenderCode">
+            <summary>
+            Member Gender where "0" is unknown, "1' is Male, and "2" is Female.
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.BirthDate">
+            <summary>
+            The member's birthdate in YYYYMMDD format
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.EGHPFlag">
+            <summary>
+            Member last name
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PBPNumber">
+            <summary>
+            Two character code for the Plan Benefit Package
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.ElectionType">
+            <summary>
+            Election type for the enrollment
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.ContractNumber">
+            <summary>
+            The plan's Medicare contract number
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.ApplicationDate">
+            <summary>
+            The date the member application was sent to the payer
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.DisenrollmentReason">
+            <summary>
+            Member last name
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.EffectiveDate">
+            <summary>
+            The date this transaction should take effect
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SegmentId">
+            <summary>
+            Segment Id is a subdividion of the PBP
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.ESRDOverride">
+            <summary>
+            ESRD Override flag
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PremiumWithholdOption">
+            <summary>
+            Flag indicating that premiums are withheld from a member's pay
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartCPremiumAmount">
+            <summary>
+            The amoung the member will pay for Part C coverage
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.CreditableCoverageFlag">
+            <summary>
+            Indicator for creditable coverage
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.NumberofUncoveredMonths">
+            <summary>
+            Number of uncovered months
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.EmployerSubsidyEnrollment">
+            <summary>
+            Employer subsidy enrollment override flag
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartDOptOutFlag">
+            <summary>
+            Part D opt out flag
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SecondaryDrugInsuranceFlag">
+            <summary>
+            Flag indicating the member has additional drug insurance
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SecondaryRxId">
+            <summary>
+            Id number of the member's additional drug insurance
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SecondaryRxGroup">
+            <summary>
+            Flag indicating the member has additional drug insurance
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.EnrollmentSource">
+            <summary>
+            Code indicating how the enrollment originated
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.TransactionTrackingId">
+            <summary>
+            Unique number assigned by the payer to correlate transactions with responses on the TRR
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartDRxBIN">
+            <summary>
+            RX BIN for Part D coverage
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartDRxPCN">
+            <summary>
+            PCN for part D coverage
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartDRxGroup">
+            <summary>
+            Group number for Part D coverage
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.PartDRxId">
+            <summary>
+            Part D Rx Id
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SecondaryDrugBIN">
+            <summary>
+            BIN for additional drug insurance
+            </summary>
+        </member>
+        <member name="P:EnrollmentClassLibrary.BaseTransaction.SecondaryDrugPCN">
+            <summary>
+            PCN for additional drug insurance
+            </summary>
+        </member>
+        <member name="F:EnrollmentClassLibrary.DisenrollmentTransaction.TransactionCode">
+            <summary>
+            CMS designates that "51" is used for all dis-enrollment transactions
+            </summary>
+        </member>
+        <member name="F:EnrollmentClassLibrary.EnrollmentTransaction.TransactionCode">
+            <summary>
+            CMS designates that "61" is used for all enrollment transactions
+            </summary>
+        </member>
+    </members>
+</doc>

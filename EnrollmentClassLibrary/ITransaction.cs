@@ -18,6 +18,10 @@ namespace EnrollmentClassLibrary
         /// A value of false indicates that data errors exist.</returns>
         bool Validate();
 
+        /// <summary>
+        /// Stub for the insert method
+        /// </summary>
+        /// <returns></returns>
         string Insert();
     }
 }
