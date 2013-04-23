@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace EnrollmentClassLibrary
 {
+    /// <summary>
+    /// The class <c>EnrollmentTransaction</c> is the object for enrollment transactions.
+    /// It inherits BaseTransaction which implements the ITransaction interface.
+    /// </summary>
     class EnrollmentTransaction:BaseTransaction
     {
         /// <summary>
