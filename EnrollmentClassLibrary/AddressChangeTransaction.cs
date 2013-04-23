@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class AddressChangeTransaction : BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "76" is used for all enrollment transactions
+        /// CMS designates that "76" is used for change of address transactions
         /// </summary>
         public const string TransactionCode = "76";
     }

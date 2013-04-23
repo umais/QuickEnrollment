@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class NUNCMOChangeTransaction : BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "73" is used for all enrollment transactions
+        /// CMS designates that "73" is used for NUNCMO change transactions
         /// </summary>
         public const string TransactionCode = "73";
     }

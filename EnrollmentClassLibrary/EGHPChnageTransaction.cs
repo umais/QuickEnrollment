@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class EGHPChnageTransaction:BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "74" is used for all enrollment transactions
+        /// CMS designates that "74" is used for EGHP flag change transactions
         /// </summary>
         public const string TransactionCode = "74";
     }

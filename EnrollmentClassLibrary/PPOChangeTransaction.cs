@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class PPOChangeTransaction:BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "75" is used for all enrollment transactions
+        /// CMS designates that "75" is used for PPO change transactions
         /// </summary>
         public const string TransactionCode = "75";
     }

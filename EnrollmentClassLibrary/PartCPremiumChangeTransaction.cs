@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class PartCPremiumChangeTransaction : BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "78" is used for all enrollment transactions
+        /// CMS designates that "78" is used for Part C Premium change transactions
         /// </summary>
         public const string TransactionCode = "78";
     }

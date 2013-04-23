@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class SegmentIdChangeTransaction : BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "77" is used for all enrollment transactions
+        /// CMS designates that "77" is used for segment id change transactions
         /// </summary>
         public const string TransactionCode = "77";
     }

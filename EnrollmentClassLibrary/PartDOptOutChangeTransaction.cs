@@ -13,7 +13,7 @@ namespace EnrollmentClassLibrary
     class PartDOptOutChangeTransaction : BaseTransaction
     {
         /// <summary>
-        /// CMS designates that "79" is used for all enrollment transactions
+        /// CMS designates that "79" is used for Part D opt out transactions
         /// </summary>
         public const string TransactionCode = "79";
     }

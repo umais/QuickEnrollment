@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="AddressChangeTransaction.cs" />
     <Compile Include="BaseTransaction.cs" />
+    <Compile Include="CancelDisenrollmentTransaction.cs" />
+    <Compile Include="CancelEnrollmentTransaction.cs" />
+    <Compile Include="CorrectionTransaction.cs" />
     <Compile Include="DisenrollmentTransaction.cs" />
     <Compile Include="EGHPChnageTransaction.cs" />
     <Compile Include="EligibilityRules.cs" />
@@ -54,6 +57,8 @@
     <Compile Include="ITransaction.cs" />
     <Compile Include="ITransactionRules.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="MPPCancelTransaction.cs" />
+    <Compile Include="MPPOptOutTransaction.cs" />
     <Compile Include="NUNCMOChangeTransaction.cs" />
     <Compile Include="PartCPremiumChangeTransaction.cs" />
     <Compile Include="PartDOptOutChangeTransaction.cs" />
