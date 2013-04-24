@@ -54,6 +54,53 @@ namespace EnrollmentClassLibrary
         }
 
         /// <summary>
+        /// ValidateMInitial edit checks the data for an enrollment transaction. The
+        /// MInitial is optional and must not be greater than 1 character long.
+        /// </summary>
+        /// <returns>If the initial is a single character, return true otherwise return false</returns>
+        public bool ValidateMInitial()
+        {
+            if (this.MInitial.Length > 1) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// ValidateGenderCode edit checks the data for an enrollment transaction. The
+        /// GenderCode is required and must be a 0, 1, or 2
+        /// </summary>
+        /// <returns>If the GenderCode is valid, return true, otherwise false</returns>
+        public bool ValidateGenderCode()
+        {
+            bool IsValid = true;
+            switch (this.GenderCode)
+            {
+                case "0":
+                    IsValid = true;
+                    break;
+                case "1":
+                    IsValid = true;
+                    break;
+                case "2":
+                    IsValid =  true;
+                    break;
+                default:
+                    IsValid =  false;
+                    break;
+            }
+            return IsValid;
+        }
+
+        /// <summary>
+        /// The <c>ValidateBirthDate</c> edit checks the data for an enrollment transaction. The
+        /// BirthDate is required and must be a valid date.
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidateBirthDate()
+        {
+            return true;
+        }
+
+        /// <summary>
         /// The <c>Validate</c> method checks all the properties in the transaction.
         /// </summary>
         /// <returns>If all the elements are valid, the method returns true, otherwise
@@ -66,7 +113,9 @@ namespace EnrollmentClassLibrary
             IsValid = IsValid 
                     & ValidateHICN() 
                     & ValidateSurname() 
-                    & ValidateFirstName();
+                    & ValidateFirstName()
+                    & ValidateMInitial()
+                    & ValidateGenderCode();
             return IsValid;
         }
 

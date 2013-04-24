@@ -331,6 +331,96 @@ namespace EnrollmentClassLibrary
             set { _SecondaryDrugPCN = value; }
         }
 
+        private string _ActionCode;
+        /// <summary>
+        /// Action requested on a correction
+        /// </summary>
+        public string ActionCode
+        {
+            get { return _ActionCode; }
+            set { _ActionCode = value; }
+        }
+
+        private string _ResidenceAddress1;
+        /// <summary>
+        /// Street name and house number
+        /// </summary>
+        public string ResidenceAddress1
+        {
+            get { return _ResidenceAddress1; }
+            set { _ResidenceAddress1 = value; }
+        }
+
+        private string _ResidenceAddress2;
+        /// <summary>
+        /// Apartment or PO Box
+        /// </summary>
+        public string ResidenceAddress2
+        {
+            get { return _ResidenceAddress2; }
+            set { _ResidenceAddress2 = value; }
+        }
+
+        private string _AddressUpdateFlag;
+        /// <summary>
+        /// Indicator to update or delete the address
+        /// </summary>
+        public string AddressUpdateFlag
+        {
+            get { return _AddressUpdateFlag; }
+            set { _AddressUpdateFlag = value; }
+        }
+
+        private string _ResidenceCity;
+        /// <summary>
+        /// City
+        /// </summary>
+        public string ResidenceCity
+        {
+            get { return _ResidenceCity; }
+            set { _ResidenceCity = value; }
+        }
+
+        private string _ResidenceState;
+        /// <summary>
+        /// State
+        /// </summary>
+        public string ResidenceState
+        {
+            get { return _ResidenceState; }
+            set { _ResidenceState = value; }
+        }
+
+        private string _ResidenceZipCode;
+        /// <summary>
+        /// Zip Code
+        /// </summary>
+        public string ResidenceZipCode
+        {
+            get { return _ResidenceZipCode; }
+            set { _ResidenceZipCode = value; }
+        }
+
+        private string _ResidenceZipCode4;
+        /// <summary>
+        /// Zip Code plus 4 numbers
+        /// </summary>
+        public string ResidenceZipCode4
+        {
+            get { return _ResidenceZipCode4; }
+            set { _ResidenceZipCode4 = value; }
+        }
+
+        private string _EndDate;
+        /// <summary>
+        /// The date the address is no longer in effect
+        /// </summary>
+        public string EndDate
+        {
+            get { return _EndDate; }
+            set { _EndDate = value; }
+        }
+
         /// <summary>
         /// The <c>validate</c> method is part of the ITransaction interface. This method checks the values of the transaction and returns
         /// true if the elements pass the edit checks; otherwise it returns false.
