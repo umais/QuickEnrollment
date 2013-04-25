@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,53 +17,6 @@ namespace EnrollmentClassLibrary
         /// CMS designates that "61" is used for all enrollment transactions
         /// </summary>
         public const string TransactionCode = "61";
-
-        /// <summary>
-        /// ValidateHICN edit checks the data for an enrollment transaction. The
-        /// HICN is required and must not be greater than 12 characters long.
-        /// </summary>
-        /// <returns>If the HICN is valid, return true, otherwise false.</returns>
-        public bool ValidateHICN()
-        {
-            if (this.HICN.Length < 1)  return false;
-            if (this.HICN.Length > 12) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateSurname edit checks the data for an enrollment transaction. The
-        /// Surname is required and must not be greater than 12 characters long.
-        /// </summary>
-        /// <returns>If the Surname is valid, return true, otherwise false.</returns>
-        public bool ValidateSurname()
-        {
-            if (this.Surname.Length < 1) return false;
-            if (this.Surname.Length > 12) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateFirstName edit checks the data for an enrollment transaction. The
-        /// FirstName is required and must not be greater than 7 characters long.
-        /// </summary>
-        /// <returns>If the FirstName is valid, return true, otherwise false.</returns>
-        public bool ValidateFirstName()
-        {
-            if (this.FirstName.Length < 1) return false;
-            if (this.FirstName.Length > 7) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateMInitial edit checks the data for an enrollment transaction. The
-        /// MInitial is optional and must not be greater than 1 character long.
-        /// </summary>
-        /// <returns>If the initial is a single character, return true otherwise return false</returns>
-        public bool ValidateMInitial()
-        {
-            if (this.MInitial.Length > 1) return false;
-            return true;
-        }
 
         /// <summary>
         /// ValidateGenderCode edit checks the data for an enrollment transaction. The
@@ -94,10 +48,85 @@ namespace EnrollmentClassLibrary
         /// The <c>ValidateBirthDate</c> edit checks the data for an enrollment transaction. The
         /// BirthDate is required and must be a valid date.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>If the birthdate is a string in YYYYMMDD format, then true, otherwise false</returns>
         public bool ValidateBirthDate()
         {
-            return true;
+            CultureInfo enUS = new CultureInfo("en-US"); 
+            DateTime ResultDate;
+            return DateTime.TryParseExact(this.BirthDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+        }
+
+        /// <summary>
+        /// The <c>ValidateEGHPFlag</c> edit checks the data for an enrollment transaction. The EGHP is required
+        /// for a plan submitting an EGHP enrollment. The value is required and must be "0" or "1".
+        /// </summary>
+        /// <returns>When the flag </returns>
+        public bool ValidateEGHPFlag()
+        {
+            bool IsValid = true;
+            switch (this.EGHPFlag)
+            {
+                case "0":
+                    IsValid = true;
+                    break;
+                case "1":
+                    IsValid = true;
+                    break;
+                default:
+                    IsValid = false;
+                    break;
+            }
+            return IsValid;
+        }
+
+        /// <summary>
+        /// The method <c>ValidateApplicationDate</c> edit checks the application date for the enrollment transaction.
+        /// The date is required and in a yyyymmdd format.
+        /// </summary>
+        /// <returns>If the application date is valid then true otherwise false</returns>
+        public bool ValidateApplicationDate()
+        {
+            CultureInfo enUS = new CultureInfo("en-US");
+            DateTime ResultDate;
+            return DateTime.TryParseExact(this.ApplicationDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+        }
+
+        /// <summary>
+        /// The method <c>ValidateApplicationDate</c> edit checks the application date for the enrollment transaction.
+        /// The date is required and in a yyyymmdd format.
+        /// </summary>
+        /// <returns>If the effective date is valid then true otherwise false</returns>
+        public bool ValidateEffectiveDate()
+        {
+            CultureInfo enUS = new CultureInfo("en-US");
+            DateTime ResultDate;
+            return DateTime.TryParseExact(this.EffectiveDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+        }
+
+        /// <summary>
+        /// The <c>ValidateSegmentId</c> method edit checks the data for an enrollment transaction. The
+        /// Segment Id is required and must be a two digit integer with leading zeros.
+        /// </summary>
+        /// <returns>If the Segment Id is valid, then true otherwise false</returns>
+        public bool ValidateSegmentId()
+        {
+            int ResultInt;
+            if (this.SegmentId.Length < 2) return false;
+            if (this.SegmentId.Length > 2) return false;
+            return int.TryParse(this.SegmentId, out ResultInt);
+        }
+
+        /// <summary>
+        /// The <c>ValidatePBPNumber</c> method edit checks the data for an enrollment transaction. The PBP
+        /// number is required and must be a three digit integer with leading zeros.
+        /// </summary>
+        /// <returns></returns>
+        public bool ValidatePBPNumber()
+        {
+            int ResultInt;
+            if (this.PBPNumber.Length < 3) return false;
+            if (this.PBPNumber.Length > 3) return false;
+            return int.TryParse(this.SegmentId, out ResultInt);
         }
 
         /// <summary>
@@ -115,7 +144,14 @@ namespace EnrollmentClassLibrary
                     & ValidateSurname() 
                     & ValidateFirstName()
                     & ValidateMInitial()
-                    & ValidateGenderCode();
+                    & ValidateGenderCode()
+                    & ValidateBirthDate()
+                    & ValidateEGHPFlag()
+                    & ValidatePBPNumber()
+                    & ValidateContractNumber()
+                    & ValidateApplicationDate()
+                    & ValidateEffectiveDate()
+                    & ValidateSegmentId();
             return IsValid;
         }
 
