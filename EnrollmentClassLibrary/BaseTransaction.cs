@@ -11,6 +11,13 @@ namespace EnrollmentClassLibrary
     /// </summary>
     public abstract class BaseTransaction:ITransaction
     {
+        private string _transactionID;
+
+        public string TransactionID
+        {
+            get { return _transactionID; }
+            set { _transactionID = value; }
+        }
         private string _HICN;
         /// <summary>
         /// CMS member identifier HICN
@@ -480,12 +487,23 @@ namespace EnrollmentClassLibrary
             return true;
         }
 
+        private List<TransactionErrors> _errorList;
+
+        public List<TransactionErrors> ErrorList
+        {
+            get { return _errorList; }
+            set { _errorList = value; }
+        }
+
+    
+
         /// <summary>
         /// The <c>validate</c> method is part of the ITransaction interface. This method checks the values of the transaction and returns
         /// true if the elements pass the edit checks; otherwise it returns false.
         /// </summary>
         /// <returns>A value of true indicates that all the data on this transaction is valid and ready to send to CMS.
         /// A value of false indicates that data errors exist.</returns>
+
         public bool Validate()
         {
             return true;
@@ -498,6 +516,15 @@ namespace EnrollmentClassLibrary
         {
             return "what is this?";
         }
+
+ 
+        
+
+
+
+     
+      
+
     }
 
 }

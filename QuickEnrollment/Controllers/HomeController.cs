@@ -23,7 +23,7 @@ namespace QuickEnrollment.Controllers
         public ViewResult Index()
         {
             string todaysDateTime = DateTime.Now.ToString();
-            ViewBag.MyName = myTransaction.Insert();
+           
             ViewBag.ILike=new  List<String>{"Counting to 1 to 10","Learning My ABC's","Watching Educational Shows"};
             return View();
         }

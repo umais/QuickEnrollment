@@ -17,7 +17,7 @@ namespace FileCopyTest
 
         public void printTransaction()
         {
-            Console.WriteLine(trans.Insert());
+            Console.WriteLine("Test");
         }
     }
 }

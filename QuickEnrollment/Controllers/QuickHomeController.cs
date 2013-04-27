@@ -19,7 +19,7 @@ namespace QuickEnrollment.Controllers
         public ViewResult Index()
         {
 
-            ViewBag.MyName = myTransaction.Insert();
+            
             return View();
         }
 
