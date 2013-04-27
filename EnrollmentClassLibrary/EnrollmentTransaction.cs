@@ -178,6 +178,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateCreditableCoverageFlag()
         {
+            if (this.CreditableCoverageFlag.Length != 1) return false;
             return true;
         }
 
@@ -188,7 +189,9 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateNumberofUncoveredMonths()
         {
-            return true;
+            int ResultInt;
+            if (this.NumberofUncoveredMonths.Length != 3) return false;
+            return int.TryParse(this.SegmentId, out ResultInt);
         }
 
         /// <summary>
