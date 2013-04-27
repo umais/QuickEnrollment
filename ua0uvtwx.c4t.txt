@@ -1,0 +1,24 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Not currently on any branch.
+# You are currently rebasing.
+#   (all conflicts fixed: run "git rebase --continue")
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   EnrollmentClassLibrary/BaseTransaction.cs
+#	modified:   EnrollmentClassLibrary/DisenrollmentTransaction.cs
+#	modified:   EnrollmentClassLibrary/EnrollmentClassLibrary.csproj
+#	new file:   EnrollmentClassLibrary/EnrollmentRepository.cs
+#	modified:   EnrollmentClassLibrary/EnrollmentTransaction.cs
+#	modified:   EnrollmentClassLibrary/ITransaction.cs
+#	new file:   EnrollmentClassLibrary/ITransactionRepository.cs
+#	new file:   EnrollmentClassLibrary/TransactionErrors.cs
+#	modified:   FileCopyTest/ValidateEnrollment.cs
+#	modified:   QuickEnrollment/Controllers/HomeController.cs
+#	modified:   QuickEnrollment/Controllers/QuickHomeController.cs
+#	modified:   QuickEnrollment/Views/QuickHome/Index.cshtml
+#
+

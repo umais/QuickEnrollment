@@ -9,9 +9,9 @@ namespace EnrollmentClassLibrary
     public interface ITransactionRepository
     {
         
-        void Insert(ITransaction newTrans);
-        List<ITransaction> getAll();
-        ITransaction get(string id);
-        void Update(ITransaction updatedTrans);
+        void Insert(BaseTransaction newTrans);
+        List<BaseTransaction> getAll();
+        BaseTransaction get(string id);
+        void Update(BaseTransaction updatedTrans);
     }
 }

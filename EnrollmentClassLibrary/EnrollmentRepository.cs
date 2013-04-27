@@ -9,8 +9,8 @@ namespace EnrollmentClassLibrary
    public class EnrollmentRepository:ITransactionRepository
     {
        //This is temporary static collection just for testing purposes. will be replaced soon by a list getting data from actual Database.
-        public static List<ITransaction> transactionList=
-            new List<ITransaction>
+        public static List<BaseTransaction> transactionList=
+            new List<BaseTransaction>
             {new EnrollmentTransaction{FirstName="Umais",Surname="Siddiqui",TransactionID="1234"}};
 
         public static EnrollmentRepository repo = new EnrollmentRepository();
@@ -18,16 +18,23 @@ namespace EnrollmentClassLibrary
         {
             return repo;
         }
-        public void Insert(ITransaction newTransaction) {
+        public void Insert(BaseTransaction newTransaction) {
             transactionList.Add(newTransaction);
         }
-        public List<ITransaction> getAll() { return transactionList; }
-        public void Update(ITransaction updatedTransaction) { 
-        
+        public List<BaseTransaction> getAll() { return transactionList; }
+        public void Update(BaseTransaction updatedTransaction) {
+            BaseTransaction matches = transactionList.Where(t => t.TransactionID == updatedTransaction.TransactionID).First();
+            if (matches != null)
+            {
+                transactionList.Remove(matches);
+                transactionList.Add(updatedTransaction);
+            }
+
         }
-        public ITransaction get(string id) {
-            return new EnrollmentTransaction();
-           // ITransaction t=fromtransactionList.Where(t1=>t
+        public BaseTransaction get(string id) {
+            var matches = transactionList.Where(t => t.TransactionID == id);
+            return matches.Count() > 0 ? matches.First() : null;
+           
         }
     }
 }

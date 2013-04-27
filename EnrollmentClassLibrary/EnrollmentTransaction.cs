@@ -11,7 +11,7 @@ namespace EnrollmentClassLibrary
     /// The class <c>EnrollmentTransaction</c> is the object for enrollment transactions.
     /// It inherits BaseTransaction which implements the ITransaction interface.
     /// </summary>
-    class EnrollmentTransaction:BaseTransaction
+   public  class EnrollmentTransaction:BaseTransaction
     {
         /// <summary>
         /// CMS designates that "61" is used for all enrollment transactions

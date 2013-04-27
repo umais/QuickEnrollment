@@ -512,10 +512,7 @@ namespace EnrollmentClassLibrary
         /// Stub for the Insert method
         /// </summary>
         /// <returns></returns>
-        public string Insert()
-        {
-            return "what is this?";
-        }
+     
 
  
         

@@ -23,7 +23,7 @@ namespace EnrollmentClassLibrary
         /// Stub for the insert method
         /// </summary>
         /// <returns></returns>
-        string Insert();
+       
 
         
        
