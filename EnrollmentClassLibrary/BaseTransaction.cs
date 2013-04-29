@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Reflection;
 namespace EnrollmentClassLibrary
 {
     /// <summary>
     /// The <c>BaseTransaction</c> is an abstract class containing the common properties and methods of all CMS Transactions.
     /// </summary>
-    public abstract class BaseTransaction:ITransaction
+    [System.Xml.Serialization.XmlInclude(typeof(EnrollmentTransaction))]
+    public  abstract class BaseTransaction:ITransaction
     {
         private string _transactionID;
 

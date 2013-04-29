@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
 namespace EnrollmentClassLibrary
 {
     /// <summary>
     /// The class <c>EnrollmentTransaction</c> is the object for enrollment transactions.
     /// It inherits BaseTransaction which implements the ITransaction interface.
     /// </summary>
+    
    public  class EnrollmentTransaction:BaseTransaction
     {
         /// <summary>

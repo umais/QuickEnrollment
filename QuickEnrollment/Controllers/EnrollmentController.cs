@@ -11,6 +11,10 @@ namespace QuickEnrollment.Controllers
         //
         // GET: /Enrollment/
         ITransactionRepository r=EnrollmentRepository.getEnrollmentRepo();
+        //public EnrollmentsController()
+        //{
+        //    System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(BaseTransaction),new Type[] {typeof(EnrollmentTransaction)});
+        //}
         public List<BaseTransaction> getEnrollments()
         {
             return r.getAll();
@@ -26,7 +30,7 @@ namespace QuickEnrollment.Controllers
         {
             r.Insert(newTrans);
         }
-
+        
         [HttpPut]
         public void UpdateTransaction([FromBody] EnrollmentTransaction updatedTransaction)
         {

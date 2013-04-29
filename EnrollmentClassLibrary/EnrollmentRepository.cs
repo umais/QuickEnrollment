@@ -21,6 +21,8 @@ namespace EnrollmentClassLibrary
         public void Insert(BaseTransaction newTransaction) {
             transactionList.Add(newTransaction);
         }
+
+       
         public List<BaseTransaction> getAll() { return transactionList; }
         public void Update(BaseTransaction updatedTransaction) {
             BaseTransaction matches = transactionList.Where(t => t.TransactionID == updatedTransaction.TransactionID).First();
