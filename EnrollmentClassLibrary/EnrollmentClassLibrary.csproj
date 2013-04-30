@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AddressChangeTransaction.cs" />
     <Compile Include="BaseTransaction.cs" />
+    <Compile Include="BasicEditChecks.cs" />
     <Compile Include="CancelDisenrollmentTransaction.cs" />
     <Compile Include="CancelEnrollmentTransaction.cs" />
     <Compile Include="CorrectionTransaction.cs" />
