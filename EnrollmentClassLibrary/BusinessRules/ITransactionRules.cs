@@ -9,7 +9,6 @@ namespace EnrollmentClassLibrary.BusinessRules
 {
     public interface ITransactionRules
     {
-        //ITransaction transaction {get; set;}
          bool ApplyRules();
         //void ValidateTransaction(EnrollmentApplication App);
         //void UpdateTransaction(EnrollmentApplication App);

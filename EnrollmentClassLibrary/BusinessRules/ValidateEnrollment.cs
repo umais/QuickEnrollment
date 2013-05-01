@@ -36,9 +36,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the HICN is valid, return true, otherwise false.</returns>
         public bool ValidateHICN()
         {
-            if (!Edits.CheckRequired(transaction.HICN)) return false;
-            if (transaction.HICN.Length > 12) return false;
-            return true;
+            return Edits.CheckRequired(transaction.HICN)
+                 & Edits.MaxLength(transaction.HICN, 12);
         }
 
         /// <summary>
@@ -48,9 +47,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the Surname is valid, return true, otherwise false.</returns>
         public bool ValidateSurname()
         {
-            if (transaction.Surname.Length < 1) return false;
-            if (transaction.Surname.Length > 12) return false;
-            return true;
+            return Edits.CheckRequired(transaction.Surname)
+                 & Edits.MaxLength(transaction.Surname, 12);
         }
 
         /// <summary>
@@ -60,9 +58,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the FirstName is valid, return true, otherwise false.</returns>
         public bool ValidateFirstName()
         {
-            if (transaction.FirstName.Length < 1) return false;
-            if (transaction.FirstName.Length > 7) return false;
-            return true;
+            return Edits.CheckRequired(transaction.FirstName)
+                 & Edits.MaxLength(transaction.FirstName, 7);
         }
 
         /// <summary>
@@ -72,8 +69,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the initial is a single character, return true otherwise return false</returns>
         public bool ValidateMInitial()
         {
-            if (transaction.MInitial.Length > 1) return false;
-            return true;
+            return Edits.MaxLength(transaction.MInitial, 1);
         }
 
         /// <summary>
@@ -83,9 +79,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the contract number is valid then true, otherwise false</returns>
         public bool ValidateContractNumber()
         {
-            if (transaction.ContractNumber.Length < 5) return false;
-            if (transaction.ContractNumber.Length > 5) return false;
-            return true;
+            return Edits.CheckRequired(transaction.ContractNumber)
+                 & Edits.MaxLength(transaction.ContractNumber, 5);
         }
 
         /// <summary>
@@ -174,9 +169,9 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the Segment Id is valid, then true otherwise false</returns>
         public bool ValidateSegmentId()
         {
-            int ResultInt;
-            if (transaction.SegmentId.Length != 2) return false;
-            return int.TryParse(transaction.SegmentId, out ResultInt);
+            return Edits.CheckRequired(transaction.SegmentId)
+                 & Edits.CheckLength(transaction.SegmentId, 2)
+                 & Edits.CheckIsInt(transaction.SegmentId);
         }
 
         /// <summary>
@@ -186,9 +181,9 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePBPNumber()
         {
-            int ResultInt;
-            if (transaction.PBPNumber.Length != 3) return false;
-            return int.TryParse(transaction.SegmentId, out ResultInt);
+            return Edits.CheckRequired(transaction.PBPNumber)
+                 & Edits.CheckLength(transaction.PBPNumber, 2)
+                 & Edits.CheckIsInt(transaction.PBPNumber);
         }
 
         /// <summary>
@@ -198,8 +193,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateElectionType()
         {
-            if (transaction.ElectionType.Length != 1) return false;
-            return true;
+            return Edits.CheckLength(transaction.ElectionType, 1);
         }
 
         /// <summary>
@@ -209,8 +203,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateESRDOverride()
         {
-            if (transaction.ESRDOverride.Length != 1) return false;
-            return true;
+            return Edits.CheckLength(transaction.ElectionType, 1);
         }
 
         /// <summary>
@@ -220,8 +213,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePremiumWithholdOption()
         {
-            if (transaction.PremiumWithholdOption.Length != 1) return false;
-            return true;
+            return Edits.CheckLength(transaction.PremiumWithholdOption, 1);
         }
 
         /// <summary>
@@ -231,8 +223,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartCPremiumAmount()
         {
-            if (transaction.PartCPremiumAmount.Length != 6) return false;
-            return true;
+            return Edits.CheckLength(transaction.PartCPremiumAmount, 6);
         }
 
         /// <summary>
@@ -242,8 +233,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateCreditableCoverageFlag()
         {
-            if (transaction.CreditableCoverageFlag.Length != 1) return false;
-            return true;
+            return Edits.CheckLength(transaction.CreditableCoverageFlag, 1);
         }
 
         /// <summary>
@@ -253,9 +243,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateNumberofUncoveredMonths()
         {
-            int ResultInt;
-            if (transaction.NumberofUncoveredMonths.Length != 3) return false;
-            return int.TryParse(transaction.SegmentId, out ResultInt);
+            return Edits.CheckLength(transaction.NumberofUncoveredMonths, 3)
+                 & Edits.CheckIsInt(transaction.NumberofUncoveredMonths);
         }
 
         /// <summary>

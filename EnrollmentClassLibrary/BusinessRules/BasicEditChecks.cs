@@ -28,6 +28,34 @@ namespace EnrollmentClassLibrary.BusinessRules
         }
 
         /// <summary>
+        /// MaxLength compares the length of a string to verify that it is not longer than a specified
+        /// amount.
+        /// </summary>
+        /// <param name="TheData">The string that is being measured.</param>
+        /// <param name="TheLength">The length being compared</param>
+        /// <returns></returns>
+        public bool MaxLength(string TheData, int TheLength)
+        {
+            bool Result = true;
+            if (TheData.Length > TheLength) Result = false;
+            return Result;
+        }
+
+        /// <summary>
+        /// MinLength compare the length of a string to verify that it is not shorter than a
+        /// specified amount.
+        /// </summary>
+        /// <param name="TheData">The string that is being measured.</param>
+        /// <param name="TheLength">The length being compared.</param>
+        /// <returns></returns>
+        public bool MinLength(string TheData, int TheLength)
+        {
+            bool Result = true;
+            if (TheData.Length < TheLength) Result = false;
+            return Result;
+        }
+
+        /// <summary>
         /// CheckRequired verifies that an incoming string contains data.
         /// </summary>
         /// <param name="TheData">The string that is being verified.</param>
@@ -53,6 +81,17 @@ namespace EnrollmentClassLibrary.BusinessRules
             Result = DateTime.TryParseExact(TheData, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
 
             return Result;
+        }
+
+        /// <summary>
+        /// CheckIsInt verifies that an incoming string contains an integer.
+        /// </summary>
+        /// <param name="TheData">The string being verified.</param>
+        /// <returns>If the string is an integer then true, otherwise false.</returns>
+        public bool CheckIsInt(string TheData)
+        {
+            int ResultInt;
+            return int.TryParse(TheData, out ResultInt);
         }
     }
 
