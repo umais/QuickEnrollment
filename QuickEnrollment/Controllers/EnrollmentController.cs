@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using EnrollmentClassLibrary;
+using EnrollmentClassLibrary.Repositories;
+using EnrollmentClassLibrary.Models;
+
 namespace QuickEnrollment.Controllers
 {
     public class EnrollmentsController : ApiController

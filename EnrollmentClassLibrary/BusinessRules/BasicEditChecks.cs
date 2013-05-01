@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnrollmentClassLibrary
+namespace EnrollmentClassLibrary.BusinessRules
 {
     /// <summary>
     /// The class <c>BasicEditChecks</c> contains methods for checking the content and format
     /// of incoming data.
     /// </summary>
-    static class BasicEditChecks
+    class BasicEditChecks
     {
 
         /// <summary>

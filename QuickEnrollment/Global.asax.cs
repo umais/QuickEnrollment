@@ -10,6 +10,8 @@ using EnrollmentClassLibrary;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Xml;
+using EnrollmentClassLibrary.Models;
+
 namespace QuickEnrollment
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 

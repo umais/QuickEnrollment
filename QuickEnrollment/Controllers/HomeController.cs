@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using QuickEnrollment.Models;
 using System.Collections;
-using EnrollmentClassLibrary;
+using EnrollmentClassLibrary.Models;
+
 namespace QuickEnrollment.Controllers
 {
     public class HomeController : Controller

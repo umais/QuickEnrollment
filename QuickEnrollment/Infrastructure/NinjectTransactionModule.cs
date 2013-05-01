@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Ninject.Modules;
-using EnrollmentClassLibrary;
+using EnrollmentClassLibrary.Models;
 using QuickEnrollment.Controllers;
+
 namespace QuickEnrollment.Infrastructure
 {
     public class NinjectTransactionModule:Ninject.Modules.NinjectModule

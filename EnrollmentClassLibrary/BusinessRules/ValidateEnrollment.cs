@@ -1,23 +1,92 @@
 ﻿using System;
-using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
-namespace EnrollmentClassLibrary
+using EnrollmentClassLibrary.Models;
+
+
+namespace EnrollmentClassLibrary.BusinessRules
 {
     /// <summary>
-    /// The class <c>EnrollmentTransaction</c> is the object for enrollment transactions.
-    /// It inherits BaseTransaction which implements the ITransaction interface.
+    /// The <c>ValidateEnrollment</c> class edit the elements of the enrollment transaction to assure they
+    /// can be accepted by CMS.
     /// </summary>
-    
-   public  class EnrollmentTransaction:BaseTransaction
+    class ValidateEnrollment:ITransactionRules
     {
         /// <summary>
-        /// CMS designates that "61" is used for all enrollment transactions
+        /// The property transaction contains the model for the EnrollmentTransaction.
         /// </summary>
-        public const string TransactionCode = "61";
+        public EnrollmentTransaction transaction { get; set; }
+        private BasicEditChecks Edits = new BasicEditChecks();
+
+        /// <summary>
+        /// The constructor accepts a transaction that is cast into a type EnrollmentTransaction.
+        /// </summary>
+        /// <param name="TheTransaction">The parameter TheTransaction contains an enrollment transaction.</param>
+        public ValidateEnrollment(EnrollmentTransaction TheTransaction)
+        {
+            transaction = TheTransaction;
+        }
+
+        /// <summary>
+        /// ValidateHICN edit checks the data for any transaction. The
+        /// HICN is required and must not be greater than 12 characters long.
+        /// </summary>
+        /// <returns>If the HICN is valid, return true, otherwise false.</returns>
+        public bool ValidateHICN()
+        {
+            if (!Edits.CheckRequired(transaction.HICN)) return false;
+            if (transaction.HICN.Length > 12) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// ValidateSurname edit checks the data for any transaction. The
+        /// Surname is required and must not be greater than 12 characters long.
+        /// </summary>
+        /// <returns>If the Surname is valid, return true, otherwise false.</returns>
+        public bool ValidateSurname()
+        {
+            if (transaction.Surname.Length < 1) return false;
+            if (transaction.Surname.Length > 12) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// ValidateFirstName edit checks the data for any transaction. The
+        /// FirstName is required and must not be greater than 7 characters long.
+        /// </summary>
+        /// <returns>If the FirstName is valid, return true, otherwise false.</returns>
+        public bool ValidateFirstName()
+        {
+            if (transaction.FirstName.Length < 1) return false;
+            if (transaction.FirstName.Length > 7) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// ValidateMInitial edit checks the data for any transaction. The
+        /// MInitial is optional and must not be greater than 1 character long.
+        /// </summary>
+        /// <returns>If the initial is a single character, return true otherwise return false</returns>
+        public bool ValidateMInitial()
+        {
+            if (transaction.MInitial.Length > 1) return false;
+            return true;
+        }
+
+        /// <summary>
+        /// ValidateContractNumber edit checks the data for all transactions. The contract number
+        /// is required, is five characters long. The first position is a letter and the remaining are digits.
+        /// </summary>
+        /// <returns>If the contract number is valid then true, otherwise false</returns>
+        public bool ValidateContractNumber()
+        {
+            if (transaction.ContractNumber.Length < 5) return false;
+            if (transaction.ContractNumber.Length > 5) return false;
+            return true;
+        }
 
         /// <summary>
         /// ValidateGenderCode edit checks the data for an enrollment transaction. The
@@ -27,7 +96,7 @@ namespace EnrollmentClassLibrary
         public bool ValidateGenderCode()
         {
             bool IsValid = true;
-            switch (this.GenderCode)
+            switch (transaction.GenderCode)
             {
                 case "0":
                     IsValid = true;
@@ -36,10 +105,10 @@ namespace EnrollmentClassLibrary
                     IsValid = true;
                     break;
                 case "2":
-                    IsValid =  true;
+                    IsValid = true;
                     break;
                 default:
-                    IsValid =  false;
+                    IsValid = false;
                     break;
             }
             return IsValid;
@@ -52,9 +121,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the birthdate is a string in YYYYMMDD format, then true, otherwise false</returns>
         public bool ValidateBirthDate()
         {
-            CultureInfo enUS = new CultureInfo("en-US"); 
-            DateTime ResultDate;
-            return DateTime.TryParseExact(this.BirthDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+            return Edits.CheckIsDate(transaction.BirthDate);
         }
 
         /// <summary>
@@ -65,7 +132,7 @@ namespace EnrollmentClassLibrary
         public bool ValidateEGHPFlag()
         {
             bool IsValid = true;
-            switch (this.EGHPFlag)
+            switch (transaction.EGHPFlag)
             {
                 case "0":
                     IsValid = true;
@@ -87,9 +154,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the application date is valid then true otherwise false</returns>
         public bool ValidateApplicationDate()
         {
-            CultureInfo enUS = new CultureInfo("en-US");
-            DateTime ResultDate;
-            return DateTime.TryParseExact(this.ApplicationDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+            return Edits.CheckIsDate(transaction.ApplicationDate);
         }
 
         /// <summary>
@@ -99,9 +164,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the effective date is valid then true otherwise false</returns>
         public bool ValidateEffectiveDate()
         {
-            CultureInfo enUS = new CultureInfo("en-US");
-            DateTime ResultDate;
-            return DateTime.TryParseExact(this.EffectiveDate, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
+            return Edits.CheckIsDate(transaction.EffectiveDate);
         }
 
         /// <summary>
@@ -112,8 +175,8 @@ namespace EnrollmentClassLibrary
         public bool ValidateSegmentId()
         {
             int ResultInt;
-            if (this.SegmentId.Length != 2) return false;
-            return int.TryParse(this.SegmentId, out ResultInt);
+            if (transaction.SegmentId.Length != 2) return false;
+            return int.TryParse(transaction.SegmentId, out ResultInt);
         }
 
         /// <summary>
@@ -124,8 +187,8 @@ namespace EnrollmentClassLibrary
         public bool ValidatePBPNumber()
         {
             int ResultInt;
-            if (this.PBPNumber.Length != 3) return false;
-            return int.TryParse(this.SegmentId, out ResultInt);
+            if (transaction.PBPNumber.Length != 3) return false;
+            return int.TryParse(transaction.SegmentId, out ResultInt);
         }
 
         /// <summary>
@@ -135,7 +198,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateElectionType()
         {
-            if (this.ElectionType.Length != 1) return false;
+            if (transaction.ElectionType.Length != 1) return false;
             return true;
         }
 
@@ -146,7 +209,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateESRDOverride()
         {
-            if (this.ESRDOverride.Length != 1) return false;
+            if (transaction.ESRDOverride.Length != 1) return false;
             return true;
         }
 
@@ -157,7 +220,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePremiumWithholdOption()
         {
-            if (this.PremiumWithholdOption.Length != 1) return false;
+            if (transaction.PremiumWithholdOption.Length != 1) return false;
             return true;
         }
 
@@ -168,7 +231,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartCPremiumAmount()
         {
-            if (this.PartCPremiumAmount.Length != 6) return false;
+            if (transaction.PartCPremiumAmount.Length != 6) return false;
             return true;
         }
 
@@ -179,7 +242,7 @@ namespace EnrollmentClassLibrary
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateCreditableCoverageFlag()
         {
-            if (this.CreditableCoverageFlag.Length != 1) return false;
+            if (transaction.CreditableCoverageFlag.Length != 1) return false;
             return true;
         }
 
@@ -191,8 +254,8 @@ namespace EnrollmentClassLibrary
         public bool ValidateNumberofUncoveredMonths()
         {
             int ResultInt;
-            if (this.NumberofUncoveredMonths.Length != 3) return false;
-            return int.TryParse(this.SegmentId, out ResultInt);
+            if (transaction.NumberofUncoveredMonths.Length != 3) return false;
+            return int.TryParse(transaction.SegmentId, out ResultInt);
         }
 
         /// <summary>
@@ -328,18 +391,17 @@ namespace EnrollmentClassLibrary
         }
 
         /// <summary>
-        /// The <c>Validate</c> method checks all the properties in the transaction.
+        /// The <c>ApplyRules</c> method executes the validations for the enrollment transaction.
         /// </summary>
-        /// <returns>If all the elements are valid, the method returns true, otherwise
-        /// if returns false.</returns>
-        public new bool Validate()
+        /// <returns>If the transaction is correct, then return true, otherwise false.</returns>
+        public bool ApplyRules()
         {
             bool IsValid = true;
 
             // Use the AND operator to assure the method only returns true was all values are valid.
-            IsValid = IsValid 
-                    & ValidateHICN() 
-                    & ValidateSurname() 
+            IsValid = IsValid
+                    & ValidateHICN()
+                    & ValidateSurname()
                     & ValidateFirstName()
                     & ValidateMInitial()
                     & ValidateGenderCode()
@@ -370,9 +432,5 @@ namespace EnrollmentClassLibrary
                     & ValidateSecondaryDrugPCN();
             return IsValid;
         }
-
-
-      
-
     }
 }

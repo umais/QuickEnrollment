@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-namespace EnrollmentClassLibrary
+namespace EnrollmentClassLibrary.Models
 {
     /// <summary>
     /// The <c>BaseTransaction</c> is an abstract class containing the common properties and methods of all CMS Transactions.
@@ -429,74 +429,16 @@ namespace EnrollmentClassLibrary
             set { _EndDate = value; }
         }
 
-        /// <summary>
-        /// ValidateHICN edit checks the data for any transaction. The
-        /// HICN is required and must not be greater than 12 characters long.
-        /// </summary>
-        /// <returns>If the HICN is valid, return true, otherwise false.</returns>
-        public bool ValidateHICN()
-        {
-            if (this.HICN.Length < 1) return false;
-            if (this.HICN.Length > 12) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateSurname edit checks the data for any transaction. The
-        /// Surname is required and must not be greater than 12 characters long.
-        /// </summary>
-        /// <returns>If the Surname is valid, return true, otherwise false.</returns>
-        public bool ValidateSurname()
-        {
-            if (this.Surname.Length < 1) return false;
-            if (this.Surname.Length > 12) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateFirstName edit checks the data for any transaction. The
-        /// FirstName is required and must not be greater than 7 characters long.
-        /// </summary>
-        /// <returns>If the FirstName is valid, return true, otherwise false.</returns>
-        public bool ValidateFirstName()
-        {
-            if (this.FirstName.Length < 1) return false;
-            if (this.FirstName.Length > 7) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateMInitial edit checks the data for any transaction. The
-        /// MInitial is optional and must not be greater than 1 character long.
-        /// </summary>
-        /// <returns>If the initial is a single character, return true otherwise return false</returns>
-        public bool ValidateMInitial()
-        {
-            if (this.MInitial.Length > 1) return false;
-            return true;
-        }
-
-        /// <summary>
-        /// ValidateContractNumber edit checks the data for all transactions. The contract number
-        /// is required, is five characters long. The first position is a letter and the remaining are digits.
-        /// </summary>
-        /// <returns>If the contract number is valid then true, otherwise false</returns>
-        public bool ValidateContractNumber()
-        {
-            if (this.ContractNumber.Length < 5) return false;
-            if (this.ContractNumber.Length > 5) return false;
-            return true;
-        }
-
         private List<TransactionErrors> _errorList;
 
+        /// <summary>
+        /// The list of errors found when validating the transaction.
+        /// </summary>
         public List<TransactionErrors> ErrorList
         {
             get { return _errorList; }
             set { _errorList = value; }
         }
-
-    
 
         /// <summary>
         /// The <c>validate</c> method is part of the ITransaction interface. This method checks the values of the transaction and returns

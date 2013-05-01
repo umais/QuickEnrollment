@@ -160,16 +160,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnrollmentClassLibrary\EnrollmentClassLibrary.csproj">
-      <Project>{875e3479-0229-46af-a707-ff645601303c}</Project>
-      <Name>EnrollmentClassLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\QuickHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnrollmentClassLibrary\EnrollmentClassLibrary.csproj">
+      <Project>{875e3479-0229-46af-a707-ff645601303c}</Project>
+      <Name>EnrollmentClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

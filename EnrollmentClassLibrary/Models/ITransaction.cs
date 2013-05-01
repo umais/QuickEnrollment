@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnrollmentClassLibrary
+namespace EnrollmentClassLibrary.Models
 {
     /// <summary>
     /// The <c>ITransaction</c> iterface assures that all transaction classes implement common methods.
