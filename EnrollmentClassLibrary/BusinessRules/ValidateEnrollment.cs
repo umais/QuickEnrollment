@@ -255,7 +255,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateEmployerSubsidyEnrollment()
         {
-            return true;
+            return Edits.CheckLength(transaction.EmployerSubsidyEnrollment, 1);
         }
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDOptOutFlag()
         {
-            return true;
+            return Edits.CheckLength(transaction.PartDOptOutFlag, 1);
         }
 
         /// <summary>
@@ -276,7 +276,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugInsuranceFlag()
         {
-            return true;
+            return Edits.CheckLength(transaction.SecondaryDrugInsuranceFlag, 1);
         }
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryRxId()
         {
-            return true;
+            return Edits.CheckLength(transaction.SecondaryRxId, 20);
         }
 
         /// <summary>
@@ -296,7 +296,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryRxGroup()
         {
-            return true;
+            return Edits.CheckLength(transaction.SecondaryRxGroup, 15);
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateEnrollmentSource()
         {
-            return true;
+            return Edits.CheckLength(transaction.EnrollmentSource, 1);
         }
 
         /// <summary>
@@ -316,7 +316,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateTransactionTrackingId()
         {
-            return true;
+            return Edits.CheckLength(transaction.TransactionTrackingId, 15)
+                 & Edits.CheckIsInt(transaction.TransactionTrackingId);
         }
 
         /// <summary>
@@ -326,7 +327,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxBIN()
         {
-            return true;
+            return Edits.CheckLength(transaction.PartDRxBIN, 6);
         }
 
         /// <summary>
@@ -336,7 +337,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxPCN()
         {
-            return true;
+            return Edits.CheckLength(transaction.PartDRxPCN, 10);
         }
 
         /// <summary>
@@ -346,7 +347,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxGroup()
         {
-            return true;
+            return Edits.CheckLength(transaction.PartDRxGroup, 15);
         }
 
         /// <summary>
@@ -356,7 +357,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxId()
         {
-            return true;
+            return Edits.CheckLength(transaction.PartDRxId, 20);
         }
 
         /// <summary>
@@ -366,7 +367,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugBIN()
         {
-            return true;
+            return Edits.CheckLength(transaction.SecondaryDrugBIN, 6);
         }
 
         /// <summary>
@@ -376,7 +377,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugPCN()
         {
-            return true;
+            return Edits.CheckLength(transaction.SecondaryDrugPCN, 10);
         }
 
         /// <summary>
