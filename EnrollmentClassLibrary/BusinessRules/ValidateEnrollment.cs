@@ -90,23 +90,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the GenderCode is valid, return true, otherwise false</returns>
         public bool ValidateGenderCode()
         {
-            bool IsValid = true;
-            switch (transaction.GenderCode)
-            {
-                case "0":
-                    IsValid = true;
-                    break;
-                case "1":
-                    IsValid = true;
-                    break;
-                case "2":
-                    IsValid = true;
-                    break;
-                default:
-                    IsValid = false;
-                    break;
-            }
-            return IsValid;
+            return Edits.CheckInList(transaction.GenderCode, new string[] {"0", "1", "2"});
         }
 
         /// <summary>
@@ -126,20 +110,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>When the flag </returns>
         public bool ValidateEGHPFlag()
         {
-            bool IsValid = true;
-            switch (transaction.EGHPFlag)
-            {
-                case "0":
-                    IsValid = true;
-                    break;
-                case "1":
-                    IsValid = true;
-                    break;
-                default:
-                    IsValid = false;
-                    break;
-            }
-            return IsValid;
+            return Edits.CheckInList(transaction.EGHPFlag, new string[] { "0", "1" });
         }
 
         /// <summary>

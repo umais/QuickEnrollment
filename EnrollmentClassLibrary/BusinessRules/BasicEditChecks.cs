@@ -93,6 +93,27 @@ namespace EnrollmentClassLibrary.BusinessRules
             int ResultInt;
             return int.TryParse(TheData, out ResultInt);
         }
+
+        /// <summary>
+        /// CheckInList compares the string data against a list of vaues passed as an array.
+        /// </summary>
+        /// <param name="TheData">The string being verified.</param>
+        /// <param name="TheValues">An array of strings. The input string is compared against this array.</param>
+        /// <returns>If a value in the array matches the input string, then true otherwise false.</returns>
+        public bool CheckInList(string TheData, string[] TheValues)
+        {
+            // this method initializes Result to false, when a match is found then result is true.
+            bool Result = false;
+            for (int i = 0; i <= TheValues.Length; i++)
+            {
+                if (TheData == TheValues[i])
+                {
+                    Result = true;
+                    break;
+                }
+            }
+            return Result;
+        }
     }
 
 }
