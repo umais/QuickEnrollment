@@ -11,7 +11,7 @@ namespace EnrollmentClassLibrary.BusinessRules
     /// The class <c>BasicEditChecks</c> contains methods for checking the content and format
     /// of incoming data.
     /// </summary>
-    class BasicEditChecks
+    public class BasicEditChecks
     {
 
         /// <summary>
@@ -23,6 +23,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool CheckLength(string TheData, int TheLength)
         {
             bool Result = true;
+            if (TheData == null) return false;
             if (TheData.Length != TheLength) Result = false;
             return Result;
         }
@@ -37,6 +38,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool MaxLength(string TheData, int TheLength)
         {
             bool Result = true;
+            if (TheData == null) return false;
             if (TheData.Length > TheLength) Result = false;
             return Result;
         }
@@ -51,6 +53,10 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool MinLength(string TheData, int TheLength)
         {
             bool Result = true;
+            if (TheData == null)
+                if (TheLength == 0) return true;
+                else
+                    return false;
             if (TheData.Length < TheLength) Result = false;
             return Result;
         }
@@ -63,6 +69,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool CheckRequired(string TheData)
         {
             bool Result = true;
+            if (TheData == null) return false;
             if (TheData.Trim().Length < 1) Result = false;
             return Result;
         }
@@ -76,6 +83,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool CheckIsDate(string TheData)
         {
             bool Result = true;
+            if (TheData == null) return false;
             CultureInfo enUS = new CultureInfo("en-US");
             DateTime ResultDate;
             Result = DateTime.TryParseExact(TheData, "yyyyMMdd", enUS, DateTimeStyles.None, out ResultDate);
@@ -91,6 +99,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool CheckIsInt(string TheData)
         {
             int ResultInt;
+            if (TheData == null) return false;
             return int.TryParse(TheData, out ResultInt);
         }
 
@@ -104,7 +113,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         {
             // this method initializes Result to false, when a match is found then result is true.
             bool Result = false;
-            for (int i = 0; i <= TheValues.Length; i++)
+            if (TheData == null) return false;
+            for (int i = 0; i < TheValues.Length; i++)
             {
                 if (TheData == TheValues[i])
                 {

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentClassLibrary", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCopyTest", "FileCopyTest\FileCopyTest.csproj", "{B09E397D-61CA-4629-88D4-8BF7062BDB8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentClassLibrary.Tests", "EnrollmentClassLibrary.Tests\EnrollmentClassLibrary.Tests.csproj", "{4C4B230B-0B21-444F-8B55-D48381A6B27B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{B09E397D-61CA-4629-88D4-8BF7062BDB8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B09E397D-61CA-4629-88D4-8BF7062BDB8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B09E397D-61CA-4629-88D4-8BF7062BDB8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4B230B-0B21-444F-8B55-D48381A6B27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4B230B-0B21-444F-8B55-D48381A6B27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4B230B-0B21-444F-8B55-D48381A6B27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4B230B-0B21-444F-8B55-D48381A6B27B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
