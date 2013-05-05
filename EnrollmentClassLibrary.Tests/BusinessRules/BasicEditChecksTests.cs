@@ -154,7 +154,7 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
         public void MaxLength_Null()
         {
             bool Result = Edits.MaxLength(null, 0);
-            Assert.AreEqual(false, Result);
+            Assert.AreEqual(true, Result);
         }
 
         [TestMethod]

@@ -38,7 +38,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool MaxLength(string TheData, int TheLength)
         {
             bool Result = true;
-            if (TheData == null) return false;
+            if (TheData == null) return true;
             if (TheData.Length > TheLength) Result = false;
             return Result;
         }

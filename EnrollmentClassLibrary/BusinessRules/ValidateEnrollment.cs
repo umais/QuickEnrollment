@@ -12,7 +12,7 @@ namespace EnrollmentClassLibrary.BusinessRules
     /// The <c>ValidateEnrollment</c> class edit the elements of the enrollment transaction to assure they
     /// can be accepted by CMS.
     /// </summary>
-    class ValidateEnrollment:ITransactionRules
+    public class ValidateEnrollment:ITransactionRules
     {
         /// <summary>
         /// The property transaction contains the model for the EnrollmentTransaction.
@@ -90,7 +90,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the GenderCode is valid, return true, otherwise false</returns>
         public bool ValidateGenderCode()
         {
-            return Edits.CheckInList(transaction.GenderCode, new string[] {"0", "1", "2"});
+            return Edits.CheckRequired(transaction.GenderCode)
+                 & Edits.CheckInList(transaction.GenderCode, new string[] {"0", "1", "2"});
         }
 
         /// <summary>
@@ -100,7 +101,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the birthdate is a string in YYYYMMDD format, then true, otherwise false</returns>
         public bool ValidateBirthDate()
         {
-            return Edits.CheckIsDate(transaction.BirthDate);
+            return Edits.CheckRequired(transaction.BirthDate)
+                 & Edits.CheckIsDate(transaction.BirthDate);
         }
 
         /// <summary>
@@ -110,6 +112,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>When the flag </returns>
         public bool ValidateEGHPFlag()
         {
+            if (transaction.EGHPFlag == null) return true; // This field is not required
             return Edits.CheckInList(transaction.EGHPFlag, new string[] { "0", "1" });
         }
 
@@ -120,7 +123,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the application date is valid then true otherwise false</returns>
         public bool ValidateApplicationDate()
         {
-            return Edits.CheckIsDate(transaction.ApplicationDate);
+            return Edits.CheckRequired(transaction.ApplicationDate)
+                 & Edits.CheckIsDate(transaction.ApplicationDate);
         }
 
         /// <summary>
