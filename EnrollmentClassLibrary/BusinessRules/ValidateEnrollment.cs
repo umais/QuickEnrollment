@@ -208,7 +208,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateCreditableCoverageFlag()
         {
-            return Edits.CheckLength(transaction.CreditableCoverageFlag, 1);
+            return Edits.MaxLength(transaction.CreditableCoverageFlag, 1);
         }
 
         /// <summary>
@@ -218,6 +218,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateNumberofUncoveredMonths()
         {
+            if (transaction.NumberofUncoveredMonths == null) return true;
             return Edits.CheckLength(transaction.NumberofUncoveredMonths, 3)
                  & Edits.CheckIsInt(transaction.NumberofUncoveredMonths);
         }
@@ -230,7 +231,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateEmployerSubsidyEnrollment()
         {
-            return Edits.CheckLength(transaction.EmployerSubsidyEnrollment, 1);
+            return Edits.MaxLength(transaction.EmployerSubsidyEnrollment, 1);
         }
 
         /// <summary>
@@ -241,7 +242,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDOptOutFlag()
         {
-            return Edits.CheckLength(transaction.PartDOptOutFlag, 1);
+            return Edits.MaxLength(transaction.PartDOptOutFlag, 1);
         }
 
         /// <summary>
