@@ -188,7 +188,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePremiumWithholdOption()
         {
-            return Edits.CheckLength(transaction.PremiumWithholdOption, 1);
+            return Edits.MaxLength(transaction.PremiumWithholdOption, 1);
         }
 
         /// <summary>
@@ -252,7 +252,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugInsuranceFlag()
         {
-            return Edits.CheckLength(transaction.SecondaryDrugInsuranceFlag, 1);
+            return Edits.MaxLength(transaction.SecondaryDrugInsuranceFlag, 1);
         }
 
         /// <summary>
@@ -262,7 +262,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryRxId()
         {
-            return Edits.CheckLength(transaction.SecondaryRxId, 20);
+            return Edits.MaxLength(transaction.SecondaryRxId, 20);
         }
 
         /// <summary>
@@ -272,6 +272,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryRxGroup()
         {
+            if (transaction.SecondaryRxGroup == null) return true;
             return Edits.CheckLength(transaction.SecondaryRxGroup, 15);
         }
 
@@ -282,7 +283,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateEnrollmentSource()
         {
-            return Edits.CheckLength(transaction.EnrollmentSource, 1);
+            return Edits.MaxLength(transaction.EnrollmentSource, 1);
         }
 
         /// <summary>
@@ -292,6 +293,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateTransactionTrackingId()
         {
+            if (transaction.TransactionTrackingId == null) return true;
             return Edits.CheckLength(transaction.TransactionTrackingId, 15)
                  & Edits.CheckIsInt(transaction.TransactionTrackingId);
         }

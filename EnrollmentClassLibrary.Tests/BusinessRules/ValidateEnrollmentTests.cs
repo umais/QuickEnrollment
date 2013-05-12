@@ -111,9 +111,9 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
         }
 
         [TestMethod]
-        public void ValidatePartDOptOutFlag_Null()
+        public void ValidatePremiumWithholdOption_Null()
         {
-            bool Result = TheValidationRules.ValidatePartDOptOutFlag();
+            bool Result = TheValidationRules.ValidatePremiumWithholdOption();
             Assert.AreEqual(true, Result);
         }
 
@@ -142,6 +142,48 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
         public void ValidateEmployerSubsidyEnrollment_Null()
         {
             bool Result = TheValidationRules.ValidateEmployerSubsidyEnrollment();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidatePartDOptOutFlag_Null()
+        {
+            bool Result = TheValidationRules.ValidatePartDOptOutFlag();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateSecondaryDrugInsuranceFlag_Null()
+        {
+            bool Result = TheValidationRules.ValidateSecondaryDrugInsuranceFlag();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateSecondaryRxId_Null()
+        {
+            bool Result = TheValidationRules.ValidateSecondaryRxId();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateSecondRxGroup_Null()
+        {
+            bool Result = TheValidationRules.ValidateSecondaryRxGroup();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateEnrollmentSource_Null()
+        {
+            bool Result = TheValidationRules.ValidateEnrollmentSource();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateTransactionTrackingId_Null()
+        {
+            bool Result = TheValidationRules.ValidateTransactionTrackingId();
             Assert.AreEqual(true, Result);
         }
     }
