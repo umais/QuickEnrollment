@@ -51,7 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BusinessRules\BasicEditChecksTests.cs" />
-    <Compile Include="BusinessRules\ValidateEnrollmentTests.cs" />
+    <Compile Include="BusinessRules\ValidateEnrollmentEmptyTests.cs" />
+    <Compile Include="BusinessRules\ValidateEnrollmentNullTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

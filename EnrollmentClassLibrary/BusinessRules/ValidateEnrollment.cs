@@ -14,6 +14,7 @@ namespace EnrollmentClassLibrary.BusinessRules
     /// </summary>
     public class ValidateEnrollment:ITransactionRules
     {
+        public static string NULL = "";
         /// <summary>
         /// The property transaction contains the model for the EnrollmentTransaction.
         /// </summary>
@@ -113,6 +114,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool ValidateEGHPFlag()
         {
             if (transaction.EGHPFlag == null) return true; // This field is not required
+            if (transaction.EGHPFlag == NULL) return true;
             return Edits.CheckInList(transaction.EGHPFlag, new string[] { "0", "1" });
         }
 
@@ -219,6 +221,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool ValidateNumberofUncoveredMonths()
         {
             if (transaction.NumberofUncoveredMonths == null) return true;
+            if (transaction.NumberofUncoveredMonths == NULL) return true;
             return Edits.CheckLength(transaction.NumberofUncoveredMonths, 3)
                  & Edits.CheckIsInt(transaction.NumberofUncoveredMonths);
         }
@@ -273,6 +276,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool ValidateSecondaryRxGroup()
         {
             if (transaction.SecondaryRxGroup == null) return true;
+            if (transaction.SecondaryRxGroup == NULL) return true;
             return Edits.CheckLength(transaction.SecondaryRxGroup, 15);
         }
 
@@ -294,6 +298,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         public bool ValidateTransactionTrackingId()
         {
             if (transaction.TransactionTrackingId == null) return true;
+            if (transaction.TransactionTrackingId == NULL) return true;
             return Edits.CheckLength(transaction.TransactionTrackingId, 15)
                  & Edits.CheckIsInt(transaction.TransactionTrackingId);
         }
@@ -305,6 +310,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxBIN()
         {
+            if (transaction.PartDRxBIN == null) return true;
+            if (transaction.PartDRxBIN == NULL) return true;
             return Edits.CheckLength(transaction.PartDRxBIN, 6);
         }
 
@@ -315,6 +322,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxPCN()
         {
+            if (transaction.PartDRxPCN == null) return true;
+            if (transaction.PartDRxPCN == NULL) return true;
             return Edits.CheckLength(transaction.PartDRxPCN, 10);
         }
 
@@ -325,7 +334,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxGroup()
         {
-            return Edits.CheckLength(transaction.PartDRxGroup, 15);
+            return Edits.MaxLength(transaction.PartDRxGroup, 15);
         }
 
         /// <summary>
@@ -335,7 +344,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidatePartDRxId()
         {
-            return Edits.CheckLength(transaction.PartDRxId, 20);
+            return Edits.MaxLength(transaction.PartDRxId, 20);
         }
 
         /// <summary>
@@ -345,6 +354,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugBIN()
         {
+            if (transaction.SecondaryDrugBIN == null) return true;
+            if (transaction.SecondaryDrugBIN == NULL) return true;
             return Edits.CheckLength(transaction.SecondaryDrugBIN, 6);
         }
 
@@ -355,6 +366,8 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the value is valid for this property and transaction, then return true, otherwise return false</returns>
         public bool ValidateSecondaryDrugPCN()
         {
+            if (transaction.SecondaryDrugPCN == null) return true;
+            if (transaction.SecondaryDrugPCN == NULL) return true;
             return Edits.CheckLength(transaction.SecondaryDrugPCN, 10);
         }
 

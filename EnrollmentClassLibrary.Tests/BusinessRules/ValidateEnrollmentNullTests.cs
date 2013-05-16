@@ -11,12 +11,12 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
     /// the result should be true.
     /// </summary>
     [TestClass]
-    public class ValidateEnrollmentTests
+    public class ValidateEnrollmentNullTests
     {
         public EnrollmentTransaction TheTransaction = new EnrollmentTransaction();
         public ValidateEnrollment TheValidationRules;
 
-        public ValidateEnrollmentTests()
+        public ValidateEnrollmentNullTests()
         {
             TheValidationRules = new ValidateEnrollment(TheTransaction);
         }
@@ -186,5 +186,48 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
             bool Result = TheValidationRules.ValidateTransactionTrackingId();
             Assert.AreEqual(true, Result);
         }
+
+        [TestMethod]
+        public void ValidatePartDRxBIN_Null()
+        {
+            bool Result = TheValidationRules.ValidatePartDRxBIN();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidatePartDRxPCN_Null()
+        {
+            bool Result = TheValidationRules.ValidatePartDRxPCN();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidatePartDRxGroup_Null()
+        {
+            bool Result = TheValidationRules.ValidatePartDRxGroup();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidatePartDRxId_Null()
+        {
+            bool Result = TheValidationRules.ValidatePartDRxId();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateSecondaryDrugBIN_Null()
+        {
+            bool Result = TheValidationRules.ValidateSecondaryDrugBIN();
+            Assert.AreEqual(true, Result);
+        }
+
+        [TestMethod]
+        public void ValidateSecondaryDrugPCN_Null()
+        {
+            bool Result = TheValidationRules.ValidateSecondaryDrugPCN();
+            Assert.AreEqual(true, Result);
+        }
+
     }
 }
