@@ -37,7 +37,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// <returns>If the transaction is valid for BEQ, then return true, otherwise false.</returns>
         public override bool ApplyRules()
         {
-            return false;
+            return ValidateHICN();
         }
     }
 }
