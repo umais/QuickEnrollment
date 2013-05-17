@@ -12,23 +12,14 @@ namespace EnrollmentClassLibrary.BusinessRules
     /// The <c>ValidateEnrollment</c> class edit the elements of the enrollment transaction to assure they
     /// can be accepted by CMS.
     /// </summary>
-    public class ValidateEnrollment:ITransactionRules
+    public class ValidateEnrollment:ValidateBaseClass 
     {
-        public static string NULL = "";
-        /// <summary>
-        /// The property transaction contains the model for the EnrollmentTransaction.
-        /// </summary>
-        public EnrollmentTransaction transaction { get; set; }
-        private BasicEditChecks Edits = new BasicEditChecks();
 
         /// <summary>
         /// The constructor accepts a transaction that is cast into a type EnrollmentTransaction.
         /// </summary>
         /// <param name="TheTransaction">The parameter TheTransaction contains an enrollment transaction.</param>
-        public ValidateEnrollment(EnrollmentTransaction TheTransaction)
-        {
-            transaction = TheTransaction;
-        }
+        public ValidateEnrollment(EnrollmentTransaction TheTransaction) : base (TheTransaction) { }
 
         /// <summary>
         /// ValidateHICN edit checks the data for any transaction. The
@@ -375,7 +366,7 @@ namespace EnrollmentClassLibrary.BusinessRules
         /// The <c>ApplyRules</c> method executes the validations for the enrollment transaction.
         /// </summary>
         /// <returns>If the transaction is correct, then return true, otherwise false.</returns>
-        public bool ApplyRules()
+        public override bool ApplyRules()
         {
             bool IsValid = true;
 

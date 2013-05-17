@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessRules\ValidateBaseClass.cs" />
+    <Compile Include="BusinessRules\ValidateBEQ.cs" />
     <Compile Include="Models\BaseTransaction.cs" />
     <Compile Include="BusinessRules\BasicEditChecks.cs" />
     <Compile Include="Repositories\EnrollmentRepository.cs" />
