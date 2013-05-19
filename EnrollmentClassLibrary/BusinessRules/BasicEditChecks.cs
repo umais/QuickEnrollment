@@ -92,6 +92,40 @@ namespace EnrollmentClassLibrary.BusinessRules
         }
 
         /// <summary>
+        /// CheckIsDatePrior verifies that an incoming string contains a date that is prior to a given date.
+        /// </summary>
+        /// <param name="TheData">String date being checked</param>
+        /// <param name="CompareTo">Given that the "TheData" must be prior to: TheData less than CompareTo.</param>
+        /// <returns>If the string is a date that is prior then true, otherwise false.</returns>
+        public bool CheckIsDatePrior(string TheData, DateTime CompareTo)
+        {
+            bool Result = true;
+            if (TheData == null) return false;
+            if (!CheckIsDate(TheData)) return false;
+            CultureInfo enUS = new CultureInfo("en-US");
+            DateTime ResultDate = DateTime.ParseExact(TheData, "yyyyMMdd", enUS);
+            Result = (ResultDate < CompareTo);
+
+            return Result;
+        }
+
+        /// <summary>
+        /// ConvertToDate is a simple method to convert a string into a DateTime variable. This is a simple
+        /// but less efficient alternative to the ParseExact method.
+        /// 
+        /// If the string is not properly formatted, then an InvalidCaseException is thrown.
+        /// </summary>
+        /// <param name="TheData">A string in the format yyyMMdd</param>
+        /// <returns>A DateTime representation of the string</returns>
+        public DateTime ConvertToDate(string TheData)
+        {
+            if (!CheckIsDate(TheData)) throw new InvalidCastException();
+            CultureInfo enUS = new CultureInfo("en-US");
+            DateTime ResultDate = DateTime.ParseExact(TheData, "yyyyMMdd", enUS);
+            return ResultDate;
+        }
+
+        /// <summary>
         /// CheckIsInt verifies that an incoming string contains an integer.
         /// </summary>
         /// <param name="TheData">The string being verified.</param>

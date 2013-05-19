@@ -3,7 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EnrollmentClassLibrary.BusinessRules;
 using EnrollmentClassLibrary.Models;
 
-
 namespace EnrollmentClassLibrary.Tests.BusinessRules
 {
     /// <summary>
@@ -14,29 +13,108 @@ namespace EnrollmentClassLibrary.Tests.BusinessRules
     [TestClass]
     public class ValidateBEQTests
     {
-        public EnrollmentTransaction TheTransaction1 = new EnrollmentTransaction();
-        public EnrollmentTransaction TheTransaction2 = new EnrollmentTransaction();
-        public ValidateEnrollment TheValidationRules;
+        public EnrollmentTransaction TheTransaction = new EnrollmentTransaction();
+        public String GoodHICN;
+        public String GoodBirthDate;
+        public String GoodGenderCode;
+        public String NullHICN;
+        public String NullBirthDate;
+        public String NullGenderCode;
+        public String BadBEQBadHICN;
+        public String BadBirthDate;
+        public String BadGenderCode;
+
+        public ValidateBEQ TheValidationRules;
 
         public ValidateBEQTests()
         {
-            TheValidationRules = new ValidateEnrollment(TheTransaction1);
+            TheValidationRules = new ValidateBEQ(TheTransaction);
 
-            TheTransaction1.HICN = "375689999A";
-            TheTransaction2.HICN = null;
+            GoodHICN = "375689999A";
+            GoodBirthDate = "19591114";
+            GoodGenderCode = "1";
+
+            NullHICN = null;
+            NullBirthDate = null;
+            NullGenderCode = null;
+
+            BadBEQBadHICN = "abcdedfghijlkmnop";
+            BadBirthDate = "13 May 2013";
+            BadGenderCode = "Male";
+        }
+
+        private void BuildGoodTransaction()
+        {
+            TheTransaction.HICN = this.GoodHICN;
+            TheTransaction.BirthDate = this.GoodBirthDate;
+            TheTransaction.GenderCode = this.GoodGenderCode;
         }
 
         [TestMethod]
-        public void ValidateGoodBEQ()
+        public void ValidateGoodTransaction()
         {
-            TheValidationRules.transaction = TheTransaction1;
+            BuildGoodTransaction();
+            TheValidationRules.transaction = TheTransaction;
             Assert.AreEqual(true, TheValidationRules.ApplyRules());
         }
 
         [TestMethod]
-        public void ValidateBadBEQ()
+        public void ValidateBadBEQNullHICN()
         {
-            TheValidationRules.transaction = TheTransaction2;
+            BuildGoodTransaction();
+            TheTransaction.HICN = this.NullHICN;
+
+            TheValidationRules.transaction = TheTransaction;
+            Assert.AreEqual(false, TheValidationRules.ApplyRules());
+        }
+
+        [TestMethod]
+        public void ValidateBadBEQBadHICN()
+        {
+            BuildGoodTransaction();
+            TheTransaction.HICN = this.BadBEQBadHICN;
+
+            TheValidationRules.transaction = TheTransaction;
+            Assert.AreEqual(false, TheValidationRules.ApplyRules());
+        }
+
+        [TestMethod]
+        public void ValidateNullBirthDate()
+        {
+            BuildGoodTransaction();
+            TheTransaction.BirthDate = this.NullBirthDate;
+
+            TheValidationRules.transaction = TheTransaction;
+            Assert.AreEqual(false, TheValidationRules.ApplyRules());
+        }
+
+        [TestMethod]
+        public void ValidateBadBirthDate()
+        {
+            BuildGoodTransaction();
+            TheTransaction.BirthDate = this.BadBirthDate;
+
+            TheValidationRules.transaction = TheTransaction;
+            Assert.AreEqual(false, TheValidationRules.ApplyRules());
+        }
+
+        [TestMethod]
+        public void ValidateNullGenderCode()
+        {
+            BuildGoodTransaction();
+            TheTransaction.GenderCode = this.NullGenderCode;
+
+            TheValidationRules.transaction = TheTransaction;
+            Assert.AreEqual(true, TheValidationRules.ApplyRules());
+        }
+
+        [TestMethod]
+        public void ValidateBadGenderCode()
+        {
+            BuildGoodTransaction();
+            TheTransaction.GenderCode = this.BadGenderCode;
+
+            TheValidationRules.transaction = TheTransaction;
             Assert.AreEqual(false, TheValidationRules.ApplyRules());
         }
     }
