@@ -26,8 +26,8 @@ namespace QuickEnrollment
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
-            xml.UseXmlSerializer = true;
-          xml.SetSerializer(typeof(BaseTransaction),new XmlSerializer(typeof(EnrollmentTransaction)));
+                xml.UseXmlSerializer = true;
+                xml.SetSerializer(typeof(BaseTransaction),new XmlSerializer(typeof(EnrollmentTransaction)));
            // xml.SetSerializer(typeof(BaseTransaction),new System.Xml.Serialization.XmlSerializer( typeof(EnrollmentTransaction)));
            
         }

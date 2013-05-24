@@ -4,7 +4,7 @@ using EnrollmentClassLibrary;
 namespace QuickEnrollment.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class EnrollmentControllerTests
     {
 
         public Member getMemberObject()
