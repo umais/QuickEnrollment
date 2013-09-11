@@ -25,7 +25,7 @@ namespace QuickEnrollment.Controllers
         {
             string todaysDateTime = DateTime.Now.ToString();
            
-            ViewBag.ILike=new  List<String>{"Counting to 1 to 100","Learning My ABC's","Watching Educational Shows"};
+            ViewBag.ILike=new  List<String>{"Counting to 1 to 1000","Learning My ABC's","Watching Educational Shows"};
             return View();
         }
 
